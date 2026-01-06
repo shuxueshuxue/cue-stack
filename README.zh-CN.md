@@ -156,6 +156,8 @@ VS Code:
 
 `cue`
 
+这是“进入协作模式”的一步：把你的 Agent 伙伴接入协作控制台。
+
 如果 UI 里出现一条 pending item，就完成了。
 
 ### 如果不行（30 秒排错清单）
@@ -163,7 +165,7 @@ VS Code:
 - `cue-console` 已运行，并打开了 `http://localhost:3000`
 - `uvx` 可用（已安装 `uv`），runtime 能启动 MCP server
 - 两边都能访问同一个邮箱 DB：`~/.cue/cue.db`
-- HAP 规则已注入（否则 agent 不会在回复末尾调用 `cue()`）
+- HAP 规则已注入（否则 agent 不会在回复末尾调用 `cue()` 并等待你）
 
 ---
 

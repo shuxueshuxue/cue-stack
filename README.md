@@ -152,9 +152,11 @@ Add the Human Agent Protocol rule to your runtime’s persistent rules/system pr
 
 ### 4) Connect
 
-Type this in your agent/runtime chat:
+In your agent/runtime chat, type:
 
 `cue`
+
+This is the “enter collaboration mode” step: it connects your agent-as-collaborator to the console.
 
 If the UI shows a new pending item, you’re done.
 
@@ -163,7 +165,7 @@ If the UI shows a new pending item, you’re done.
 - `cue-console` is running and you opened `http://localhost:3000`
 - `uvx` is available (`uv` installed) and your runtime can launch the MCP server
 - Both sides can access the same mailbox DB: `~/.cue/cue.db`
-- Your runtime has the HAP rule injected (so it calls `cue()` before ending)
+- Your runtime has the HAP rule injected (so it calls `cue()` before ending and waits for you)
 
 ---
 
