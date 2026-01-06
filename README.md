@@ -14,14 +14,12 @@
 | --- | --- |
 | ![Mobile screenshot](./assets/iphone.png) | ![Desktop screenshot](./assets/desktop.png) |
 
-Open the inbox.
-Run your agent.
-When it needs you, type `cue` — the request appears here.
+Treat your agent as a collaborator.
 
-One inbox for every runtime.
+Open the console.
 
 Agents can run for hours. At that point they stop feeling like “tools” and start feeling like “coworkers”.
-Coworkers don’t dump their entire context on you — they bring results, questions, and requests. HAP defines that contract; `cue-mcp` implements it.
+Coworkers don’t dump their entire context on you — they bring progress, questions, and decisions. HAP defines that contract; `cue-mcp` implements it.
 
 | Repo | What it is | Link |
 | --- | --- | --- |
