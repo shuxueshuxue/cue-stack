@@ -10,6 +10,10 @@
 
 ---
 
+[![Repo: cue-stack](https://img.shields.io/badge/repo-cue--stack-111827)](https://github.com/nmhjklnm/cue-stack)
+[![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
+[![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
+
 | Mobile | Desktop |
 | --- | --- |
 | ![Mobile screenshot](./assets/iphone.png) | ![Desktop screenshot](./assets/desktop.png) |
