@@ -10,6 +10,10 @@
 
 ---
 
+| Mobile | Desktop |
+| --- | --- |
+| ![Mobile screenshot](./assets/iphone.png) | ![Desktop screenshot](./assets/desktop.png) |
+
 Open the inbox.
 Run your agent.
 When it needs you, type `cue` — the request appears here.

@@ -10,6 +10,10 @@
 
 ---
 
+| 手机端 | 桌面端 |
+| --- | --- |
+| ![Mobile screenshot](./assets/iphone.png) | ![Desktop screenshot](./assets/desktop.png) |
+
 打开 inbox。
 运行你的 agent。
 当它需要你时，输入 `cue` —— 请求就会出现在这里。
