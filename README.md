@@ -1,5 +1,17 @@
 # CueStack
 
+<div align="center">
+
+<strong><a href="#english">English</a></strong>
+ ·
+<strong><a href="#中文">中文</a></strong>
+
+</div>
+
+---
+
+## English
+
 Open the inbox.
 Run your agent.
 When it needs you, type `cue` — the request appears here.
@@ -92,16 +104,112 @@ VS Code:
 
 </details>
 
-### 3) System prompt (HAP rule)
+---
 
-Add the Human Agent Protocol rule to your runtime’s persistent rules/system prompt:
+## 中文
 
-- Windsurf: Global Rules
-- Codex: `agents.md`
-- Claude Code: `Claude.md`
+打开 inbox。
+运行你的 agent。
+当它需要你时，输入 `cue` —— 请求就会出现在这里。
+
+一套 inbox，统一所有 runtime。
+
+当 agent 可以离线运行数十个小时，它就不再像“工具”，而更像“同事”。
+同事不会把全部上下文砸给你——他们只会带来结果、问题、以及需要你拍板的请求。HAP 定义这份协作契约；`cue-mcp` 把它落到工程里。
+
+| Repo | 作用 | 链接 |
+| --- | --- | --- |
+| `cue-console` | UI inbox（桌面 + 手机） | [github.com/nmhjklnm/cue-console](https://github.com/nmhjklnm/cue-console) |
+| `cue-mcp` | HAP 的具象实现（MCP server） | [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp) |
+
+---
+
+## 从这里开始（可复制路径）
+
+### 1) UI（`cue-console`）
+
+```bash
+npm install -g cue-console
+cue-console dev --port 3000
+```
+
+打开 `http://localhost:3000`。
+
+### 2) MCP server（`cuemcp`）
+
+推荐 command：
+
+- `command`: `uvx`
+- `args`: `--from cuemcp cuemcp`
+
+Claude Code:
+
+```bash
+claude mcp add --transport stdio cuemcp -- uvx --from cuemcp cuemcp
+```
 
 <details>
-<summary>Copy/paste HAP rule</summary>
+<summary>其他 runtime（Windsurf / Cursor / Codex / VS Code）</summary>
+
+Windsurf（`~/.codeium/mcp_config.json`）:
+
+```json
+{
+  "mcpServers": {
+    "cuemcp": {
+      "command": "uvx",
+      "args": ["--from", "cuemcp", "cuemcp"]
+    }
+  }
+}
+```
+
+Cursor（项目内 `mcp.json`）:
+
+```json
+{
+  "mcpServers": {
+    "cuemcp": {
+      "command": "uvx",
+      "args": ["--from", "cuemcp", "cuemcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+Codex:
+
+```bash
+codex mcp add cuemcp -- uvx --from cuemcp cuemcp
+```
+
+VS Code:
+
+```json
+{
+  "servers": {
+    "cuemcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["--from", "cuemcp", "cuemcp"]
+    }
+  }
+}
+```
+
+</details>
+
+### 3) 系统提示词（HAP 规则）
+
+把 HAP 规则写入 runtime 的持久规则/系统提示词：
+
+- Windsurf：Global Rules
+- Codex：`agents.md`
+- Claude Code：`Claude.md`
+
+<details>
+<summary>复制/粘贴：HAP 规则全文</summary>
 
 ```text
 # Human Agent Protocol
@@ -138,25 +246,25 @@ Add the Human Agent Protocol rule to your runtime’s persistent rules/system pr
 
 </details>
 
-### 4) Connect
+### 4) 连接
 
-Type this in your agent/runtime chat:
+在你的 agent/runtime 聊天里输入：
 
 `cue`
 
-If the UI shows a new pending item, you’re done.
+如果 UI 里出现一条 pending item，就完成了。
 
-### If it doesn’t work (30-second checklist)
+### 如果不行（30 秒排错清单）
 
-- `cue-console` is running and you opened `http://localhost:3000`
-- `uvx` is available (`uv` installed) and your runtime can launch the MCP server
-- Both sides can access the same mailbox DB: `~/.cue/cue.db`
-- Your runtime has the HAP rule injected (so it calls `cue()` before ending)
+- `cue-console` 已运行，并打开了 `http://localhost:3000`
+- `uvx` 可用（已安装 `uv`），runtime 能启动 MCP server
+- 两边都能访问同一个邮箱 DB：`~/.cue/cue.db`
+- HAP 规则已注入（否则 agent 不会在回复末尾调用 `cue()`）
 
 ---
 
 <details>
-<summary>Architecture (at a glance)</summary>
+<summary>架构图（快速理解）</summary>
 
 ```text
 Agent/Runtime  ⇄  (MCP stdio)  ⇄  cuemcp  ⇄  ~/.cue/cue.db  ⇄  cue-console
