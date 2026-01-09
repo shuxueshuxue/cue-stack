@@ -35,7 +35,13 @@ Coworkers don’t dump their entire context on you — they bring progress, ques
 
 ## Start here (copy/paste runway)
 
-### 1) UI (`cue-console`)
+### 1) System prompt / persistent rules (required)
+
+**Add `cue-command/protocol.md` to your runtime's system prompt / persistent rules** (without this, collaboration will not work reliably):
+
+- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+
+### 2) UI (`cue-console`)
 
 ```bash
 npm install -g cue-console
@@ -44,17 +50,13 @@ cue-console dev --port 3000
 
 Open `http://localhost:3000`.
 
-### 2) MCP server (`cuemcp`)
-
-### 2) Command mode (`cueme`) (recommended)
+### 3) Command mode (`cueme`) (recommended)
 
 Note: some IDEs can block/flag MCP integrations. Command mode is currently recommended.
 
 ```bash
 npm install -g cueme
 ```
-
-Then add `cue-command/protocol.md` to your runtime's system prompt / persistent rules.
 
 <details>
 <summary>Optional: MCP server (cuemcp)</summary>

@@ -35,7 +35,13 @@
 
 ## 从这里开始（可复制路径）
 
-### 1) UI（`cue-console`）
+### 1) 系统提示词/持久规则（必做）
+
+**把 `cue-command/protocol.md` 写入你的 runtime 的系统提示词/持久规则**（不做这步，协作不会稳定工作）：
+
+- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+
+### 2) UI（`cue-console`）
 
 ```bash
 npm install -g cue-console
@@ -44,15 +50,13 @@ cue-console dev --port 3000
 
 打开 `http://localhost:3000`。
 
-### 2) Command mode（`cueme`）（推荐）
+### 3) Command mode（`cueme`）（推荐）
 
 说明：`cue-mcp` 的 MCP 通信方式可能会被某些 IDE 误封/拦截，所以目前更推荐 command 方式。
 
 ```bash
 npm install -g cueme
 ```
-
-然后把 `cue-command/protocol.md` 写入 runtime 的系统提示词/持久规则。
 
 <details>
 <summary>可选：MCP server（`cuemcp`）</summary>
