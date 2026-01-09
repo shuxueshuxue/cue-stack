@@ -199,4 +199,4 @@ UI (desktop/mobile)] <-->|reads/writes| C
 
 ## QQ 群
 
-![QQ 群二维码](./assets/qq.jpg)
+<img src="./assets/qq.jpg" alt="QQ 群二维码" width="25%" />
