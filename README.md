@@ -28,6 +28,7 @@ Coworkers don’t dump their entire context on you — they bring progress, ques
 | Repo | What it is | Link |
 | --- | --- | --- |
 | `cue-console` | UI inbox (desktop + mobile) | [github.com/nmhjklnm/cue-console](https://github.com/nmhjklnm/cue-console) |
+| `cue-command` | HAP command adapter (`cueme`) | [github.com/nmhjklnm/cue-command](https://github.com/nmhjklnm/cue-command) |
 | `cue-mcp` | HAP implementation (MCP server) | [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp) |
 
 ---
@@ -44,6 +45,19 @@ cue-console dev --port 3000
 Open `http://localhost:3000`.
 
 ### 2) MCP server (`cuemcp`)
+
+### 2) Command mode (`cueme`) (recommended)
+
+Note: some IDEs can block/flag MCP integrations. Command mode is currently recommended.
+
+```bash
+npm install -g cueme
+```
+
+Then add `cue-command/protocol.md` to your runtime's system prompt / persistent rules.
+
+<details>
+<summary>Optional: MCP server (cuemcp)</summary>
 
 Recommended runtime command:
 

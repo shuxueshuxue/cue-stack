@@ -28,6 +28,7 @@
 | Repo | 作用 | 链接 |
 | --- | --- | --- |
 | `cue-console` | UI inbox（桌面 + 手机） | [github.com/nmhjklnm/cue-console](https://github.com/nmhjklnm/cue-console) |
+| `cue-command` | HAP command 适配器（`cueme`） | [github.com/nmhjklnm/cue-command](https://github.com/nmhjklnm/cue-command) |
 | `cue-mcp` | HAP 的具象实现（MCP server） | [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp) |
 
 ---
@@ -43,7 +44,18 @@ cue-console dev --port 3000
 
 打开 `http://localhost:3000`。
 
-### 2) MCP server（`cuemcp`）
+### 2) Command mode（`cueme`）（推荐）
+
+说明：`cue-mcp` 的 MCP 通信方式可能会被某些 IDE 误封/拦截，所以目前更推荐 command 方式。
+
+```bash
+npm install -g cueme
+```
+
+然后把 `cue-command/protocol.md` 写入 runtime 的系统提示词/持久规则。
+
+<details>
+<summary>可选：MCP server（`cuemcp`）</summary>
 
 推荐 command：
 
