@@ -199,4 +199,6 @@ UI (desktop/mobile)] <-->|reads/writes| C
 
 ## QQ 群
 
-<img src="./assets/qq.jpg" alt="QQ 群二维码" width="25%" />
+<p align="center">
+  <img src="./assets/qq.jpg" alt="QQ 群二维码" width="25%" />
+</p>
