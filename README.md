@@ -196,3 +196,9 @@ UI (desktop/mobile)] <-->|reads/writes| C
 ```
 
 </details>
+
+---
+
+## QQ Group
+
+![QQ group QR code](./assets/qq.jpg)

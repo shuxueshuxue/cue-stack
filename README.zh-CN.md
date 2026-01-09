@@ -196,3 +196,7 @@ UI (desktop/mobile)] <-->|reads/writes| C
 ```
 
 </details>
+
+## QQ 群
+
+![QQ 群二维码](./assets/qq.jpg)
