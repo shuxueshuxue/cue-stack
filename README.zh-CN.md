@@ -14,6 +14,8 @@
 [![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
 [![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
 
+[Contributing](./CONTRIBUTING.md) · [Trademark](./TRADEMARK.md)
+
 | 手机端 | 桌面端 |
 | --- | --- |
 | ![Mobile screenshot](./assets/iphone.png) | ![Desktop screenshot](./assets/desktop.png) |
