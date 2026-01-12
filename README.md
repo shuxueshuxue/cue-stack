@@ -143,6 +143,8 @@ VS Code:
 
 </details>
 
+</details>
+
 ### If it doesn’t work (30-second checklist)
 
 - `cue-console` is running and you opened `http://localhost:3000`

@@ -143,6 +143,8 @@ VS Code：
 
 </details>
 
+</details>
+
 ### 如果不行（30 秒排错清单）
 
 - `cue-console` 已运行，并打开了 `http://localhost:3000`
