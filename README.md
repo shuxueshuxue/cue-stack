@@ -168,15 +168,19 @@ VS Code:
 <summary>Architecture (at a glance)</summary>
 
 ```text
-Agent/Runtime  ⇄  cueme  ⇄  ~/.cue/cue.db  ⇄  cue-console
+Agent/Runtime  ⇄  (cueme | cuemcp)  ⇄  ~/.cue/cue.db  ⇄  cue-console
 ```
 
 ```mermaid
 flowchart LR
   A["Agent / Runtime\nClaude Code • Cursor • Windsurf • Codex"] <--> B["cueme\ncommand adapter"]
+  A <-->|MCP stdio| E["cuemcp\nMCP server"]
   B <--> C[("~/.cue/cue.db\nSQLite mailbox")]
+  E <--> C
   D["cue-console\nUI (desktop/mobile)"] <-->|reads/writes| C
   D -->|human responds| C
+  C -->|response available| E
+  E -->|MCP tool result| A
 ```
 
 </details>

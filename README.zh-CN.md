@@ -168,17 +168,19 @@ VS Code：
 <summary>架构图（快速理解）</summary>
 
 ```text
-Agent/Runtime  ⇄  (MCP stdio)  ⇄  cuemcp  ⇄  ~/.cue/cue.db  ⇄  cue-console
+Agent/Runtime  ⇄  (cueme | cuemcp)  ⇄  ~/.cue/cue.db  ⇄  cue-console
 ```
 
 ```mermaid
 flowchart LR
-  A["Agent / Runtime\nClaude Code • Cursor • Windsurf • Codex"] -->|MCP stdio| B["cuemcp\nMCP server"]
-  B -->|writes requests\npolls responses| C[("~/.cue/cue.db\nSQLite mailbox")]
+  A["Agent / Runtime\nClaude Code • Cursor • Windsurf • Codex"] <--> B["cueme\ncommand adapter"]
+  A <-->|MCP stdio| E["cuemcp\nMCP server"]
+  B <--> C[("~/.cue/cue.db\nSQLite mailbox")]
+  E <--> C
   D["cue-console\nUI (desktop/mobile)"] <-->|reads/writes| C
   D -->|human responds| C
-  C -->|response available| B
-  B -->|MCP tool result| A
+  C -->|response available| E
+  E -->|MCP tool result| A
 ```
 
 </details>
