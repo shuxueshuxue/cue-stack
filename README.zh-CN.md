@@ -153,14 +153,14 @@ VS Code：
 
 </details>
 
-</details>
-
 ### 如果不行（30 秒排错清单）
 
 - `cue-console` 已运行，并打开了 `http://localhost:3000`
 - `uvx` 可用（已安装 `uv`），runtime 能启动 MCP server
 - 两边都能访问同一个邮箱 DB：`~/.cue/cue.db`
 - HAP 规则已注入（否则 agent 不会在回复末尾调用 `cue()` 并等待你）
+
+</details>
 
 ---
 

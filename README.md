@@ -153,14 +153,14 @@ VS Code:
 
 </details>
 
-</details>
-
 ### If it doesn’t work (30-second checklist)
 
 - `cue-console` is running and you opened `http://localhost:3000`
 - If you're using cuemcp: `uvx` is available (`uv` installed) and your runtime can launch the MCP server
 - Both sides can access the same mailbox DB: `~/.cue/cue.db`
 - Your runtime has the HAP rule injected (so it calls `cue()` before ending and waits for you)
+
+</details>
 
 ---
 
