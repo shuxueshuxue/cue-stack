@@ -178,6 +178,8 @@ flowchart LR
 
 </details>
 
+---
+
 ## QQ 群
 
-![QQ 群二维码](./assets/qq.jpg)
+<img src="./assets/qq.jpg" width="240" alt="QQ 群二维码" />

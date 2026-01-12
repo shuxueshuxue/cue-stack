@@ -179,6 +179,7 @@ flowchart LR
 </details>
 
 ---
+
 ## QQ Group
 
-![QQ group QR code](./assets/qq.jpg)
+<img src="./assets/qq.jpg" width="240" alt="QQ group QR code" />
