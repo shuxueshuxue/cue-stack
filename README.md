@@ -16,24 +16,14 @@
 [![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
 [![Repo: cue-command](https://img.shields.io/badge/repo-cue--command-111827)](https://github.com/nmhjklnm/cue-command)
 [![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
-
-<br/>
-
-![License](https://img.shields.io/github/license/nmhjklnm/cue-stack?color=1E40AF)
-
+[![License](https://img.shields.io/github/license/nmhjklnm/cue-stack?color=1E40AF)](./LICENSE)
 [![CI: cue-console](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml)
 [![CI: cue-command](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml)
 [![CI: cue-mcp](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml)
-
-<br/>
-
 [![npm](https://img.shields.io/npm/v/cue-console?label=cue-console&color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm downloads](https://img.shields.io/npm/dm/cue-console?color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm](https://img.shields.io/npm/v/cueme?label=cueme&color=0B7285)](https://www.npmjs.com/package/cueme)
 [![npm downloads](https://img.shields.io/npm/dm/cueme?color=0B7285)](https://www.npmjs.com/package/cueme)
-
-<br/>
-
 [![PyPI](https://img.shields.io/pypi/v/cuemcp?label=cuemcp&color=0B7285)](https://pypi.org/project/cuemcp/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/cuemcp?color=0B7285)](https://pypi.org/project/cuemcp/)
 [![Python versions](https://img.shields.io/pypi/pyversions/cuemcp?color=0B7285)](https://pypi.org/project/cuemcp/)
