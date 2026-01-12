@@ -176,6 +176,4 @@ UI (desktop/mobile)] <-->|reads/writes| C
 ---
 ## QQ Group
 
-<p align="center">
-  <img src="./assets/qq.jpg" alt="QQ group QR code" width="25%" />
-</p>
+![QQ group QR code](./assets/qq.jpg)
