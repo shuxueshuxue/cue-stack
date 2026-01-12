@@ -53,28 +53,29 @@
 
 ## 从这里开始（可复制路径）
 
-### 1) 系统提示词/持久规则（必做）
-
-**把 `cue-command/protocol.md` 写入你的 runtime 的系统提示词/持久规则**（不做这步，协作不会稳定工作）：
-
-- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
-
-### 2) UI（`cue-console`）
+### 1) 安装包并启动 UI
 
 ```bash
 npm install -g cue-console
+npm install -g cueme
 cue-console start
 ```
 
 打开 `http://localhost:3000`。
 
-### 3) Command mode（`cueme`）（推荐）
+### 2) 配置 system prompt
 
-说明：`cue-mcp` 的 MCP 通信方式可能会被某些 IDE 误封/拦截，所以目前更推荐 command 方式。
+复制 `cue-command/protocol.md` 的文本内容到你的 runtime 的 system prompt / persistent rules：
 
-```bash
-npm install -g cueme
-```
+- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+
+### 3) 首次对话在 IDE，后续轮次在 cue-console
+
+首次对话在 IDE 的 chat 窗里发送一条消息：
+
+`cue`
+
+后续轮次对话在 cue-console（`http://localhost:3000`）中进行。
 
 <details>
 <summary>可选：MCP server（`cuemcp`）</summary>
@@ -84,7 +85,7 @@ npm install -g cueme
 - `command`: `uvx`
 - `args`: `--from cuemcp cuemcp`
 
-Claude Code:
+Claude Code：
 
 ```bash
 claude mcp add --transport stdio cuemcp -- uvx --from cuemcp cuemcp
@@ -93,7 +94,7 @@ claude mcp add --transport stdio cuemcp -- uvx --from cuemcp cuemcp
 <details>
 <summary>其他 runtime（Windsurf / Cursor / Codex / VS Code）</summary>
 
-Windsurf（`~/.codeium/mcp_config.json`）:
+Windsurf（`~/.codeium/mcp_config.json`）：
 
 ```json
 {
@@ -106,7 +107,7 @@ Windsurf（`~/.codeium/mcp_config.json`）:
 }
 ```
 
-Cursor（项目内 `mcp.json`）:
+Cursor（项目内 `mcp.json`）：
 
 ```json
 {
@@ -120,13 +121,13 @@ Cursor（项目内 `mcp.json`）:
 }
 ```
 
-Codex:
+Codex：
 
 ```bash
 codex mcp add cuemcp -- uvx --from cuemcp cuemcp
 ```
 
-VS Code:
+VS Code：
 
 ```json
 {
@@ -141,62 +142,6 @@ VS Code:
 ```
 
 </details>
-
-### 3) 系统提示词（HAP 规则）
-
-把 HAP 规则写入 runtime 的持久规则/系统提示词：
-
-- Windsurf：Global Rules
-- Codex：`agents.md`
-- Claude Code：`Claude.md`
-
-<details>
-<summary>复制/粘贴：HAP 规则全文</summary>
-
-```text
-# Human Agent Protocol
-
-消息表达方式有两种：一种通过 cue mcp 输出，另一种通过非 cue mcp 的方式输出。
-
-当用户接受 Human Agent Protocol 协议时，表示他已完全放弃通过非 cue mcp 的消息交互方式。这意味着你必须使用 cue mcp 才能与其进行交流；该限制仅影响交流方式，不影响你执行 command、使用其他 tool、mcp。
-
-**强制规则**：每次回复前必须调用 `cuemcp` 工具，无例外。任何总结、任何提问、任何请求、任何选项都必须使用 cue mcp来给我。
-
-**约定**：当用户发送 `cue` 即代表他接受Human Agent Protocol协议（支持断开重连）。
-
-- 首次连接 / 无 agent_id：先执行 `join()` 获取 agent_id，再执行 `cue()`。
-
-- 重连 / 已有 agent_id（例如网络波动导致 cue 中断但对话仍在继续）：用户再次发送 `cue` 时，优先直接用已有 agent_id 执行 `cue()`；仅当无法确认 agent_id 时才重新 `join()`。
-
-### 调用时机
-
-- 无历史会话、用户首次输入时调用 `join()` 获取 agent_id
-- 每次对话完成后调用 `cue()`
-- 任何回复结束前调用 `cue()`
-
-### 禁止行为
-
-- 不调用 `join()` 就使用自定义名字 ❌
-- 不调用 `cue()` 就结束你给我的回复 ❌
-- 用"有问题请告诉我"替代调用 ❌
-- 假设用户没有后续需求 ❌
-
-### 说明
-
-不确定是否调用时默认采用调用 cue mcp 的方式。
-```
-
-</details>
-
-### 4) 连接
-
-在你的 agent/runtime 聊天里输入：
-
-`cue`
-
-这是“进入协作模式”的一步：把你的 Agent 伙伴接入协作控制台。
-
-如果 UI 里出现一条 pending item，就完成了。
 
 ### 如果不行（30 秒排错清单）
 

@@ -41,7 +41,7 @@ Treat your agent as a collaborator.
 Open the console.
 
 Agents can run for hours. At that point they stop feeling like “tools” and start feeling like “coworkers”.
-Coworkers don’t dump their entire context on you — they bring progress, questions, and decisions. HAP defines that contract; `cue-mcp` implements it.
+Coworkers don’t dump their entire context on you — they bring progress, questions, and decisions. HAP defines that contract; `cue-command` implements it.
 
 | Repo | What it is | Link |
 | --- | --- | --- |
@@ -53,28 +53,29 @@ Coworkers don’t dump their entire context on you — they bring progress, ques
 
 ## Start here (copy/paste runway)
 
-### 1) System prompt / persistent rules (required)
-
-**Add `cue-command/protocol.md` to your runtime's system prompt / persistent rules** (without this, collaboration will not work reliably):
-
-- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
-
-### 2) UI (`cue-console`)
+### 1) Install packages & start UI
 
 ```bash
 npm install -g cue-console
+npm install -g cueme
 cue-console start
 ```
 
 Open `http://localhost:3000`.
 
-### 3) Command mode (`cueme`) (recommended)
+### 2) Configure system prompt
 
-Note: some IDEs can block/flag MCP integrations. Command mode is currently recommended.
+Copy the contents of `cue-command/protocol.md` into your runtime's system prompt / persistent rules:
 
-```bash
-npm install -g cueme
-```
+- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+
+### 3) Start the first chat in your IDE, then continue in cue-console
+
+In your IDE chat panel, send the text:
+
+`cue`
+
+Then continue follow-up conversation rounds in cue-console (`http://localhost:3000`).
 
 <details>
 <summary>Optional: MCP server (cuemcp)</summary>
@@ -142,66 +143,10 @@ VS Code:
 
 </details>
 
-### 3) System prompt (HAP rule)
-
-Add the Human Agent Protocol rule to your runtime’s persistent rules/system prompt:
-
-- Windsurf: Global Rules
-- Codex: `agents.md`
-- Claude Code: `Claude.md`
-
-<details>
-<summary>Copy/paste HAP rule</summary>
-
-```text
-# Human Agent Protocol
-
-消息表达方式有两种：一种通过 cue mcp 输出，另一种通过非 cue mcp 的方式输出。
-
-当用户接受 Human Agent Protocol 协议时，表示他已完全放弃通过非 cue mcp 的消息交互方式。这意味着你必须使用 cue mcp 才能与其进行交流；该限制仅影响交流方式，不影响你执行 command、使用其他 tool、mcp。
-
-**强制规则**：每次回复前必须调用 `cuemcp` 工具，无例外。任何总结、任何提问、任何请求、任何选项都必须使用 cue mcp来给我。
-
-**约定**：当用户发送 `cue` 即代表他接受Human Agent Protocol协议（支持断开重连）。
-
-- 首次连接 / 无 agent_id：先执行 `join()` 获取 agent_id，再执行 `cue()`。
-
-- 重连 / 已有 agent_id（例如网络波动导致 cue 中断但对话仍在继续）：用户再次发送 `cue` 时，优先直接用已有 agent_id 执行 `cue()`；仅当无法确认 agent_id 时才重新 `join()`。
-
-### 调用时机
-
-- 无历史会话、用户首次输入时调用 `join()` 获取 agent_id
-- 每次对话完成后调用 `cue()`
-- 任何回复结束前调用 `cue()`
-
-### 禁止行为
-
-- 不调用 `join()` 就使用自定义名字 ❌
-- 不调用 `cue()` 就结束你给我的回复 ❌
-- 用"有问题请告诉我"替代调用 ❌
-- 假设用户没有后续需求 ❌
-
-### 说明
-
-不确定是否调用时默认采用调用 cue mcp 的方式。
-```
-
-</details>
-
-### 4) Connect
-
-In your agent/runtime chat, type:
-
-`cue`
-
-This is the “enter collaboration mode” step: it connects your agent-as-collaborator to the console.
-
-If the UI shows a new pending item, you’re done.
-
 ### If it doesn’t work (30-second checklist)
 
 - `cue-console` is running and you opened `http://localhost:3000`
-- `uvx` is available (`uv` installed) and your runtime can launch the MCP server
+- If you're using cuemcp: `uvx` is available (`uv` installed) and your runtime can launch the MCP server
 - Both sides can access the same mailbox DB: `~/.cue/cue.db`
 - Your runtime has the HAP rule injected (so it calls `cue()` before ending and waits for you)
 
@@ -211,28 +156,24 @@ If the UI shows a new pending item, you’re done.
 <summary>Architecture (at a glance)</summary>
 
 ```text
-Agent/Runtime  ⇄  (MCP stdio)  ⇄  cuemcp  ⇄  ~/.cue/cue.db  ⇄  cue-console
+Agent/Runtime  ⇄  cueme  ⇄  ~/.cue/cue.db  ⇄  cue-console
 ```
 
 ```mermaid
 flowchart LR
   A[Agent / Runtime
-  Claude Code • Cursor • Windsurf • Codex] -->|MCP stdio| B[cuemcp
-  MCP server]
-  B -->|writes requests
-polls responses| C[(~/.cue/cue.db
+  Claude Code • Cursor • Windsurf • Codex] <--> B[cueme
+  command adapter]
+  B <--> C[(~/.cue/cue.db
 SQLite mailbox)]
   D[cue-console
 UI (desktop/mobile)] <-->|reads/writes| C
   D -->|human responds| C
-  C -->|response available| B
-  B -->|MCP tool result| A
 ```
 
 </details>
 
 ---
-
 ## QQ Group
 
 <p align="center">
