@@ -173,9 +173,9 @@ Agent/Runtime  ⇄  (MCP stdio)  ⇄  cuemcp  ⇄  ~/.cue/cue.db  ⇄  cue-conso
 
 ```mermaid
 flowchart LR
-  A[Agent / Runtime<br/>Claude Code • Cursor • Windsurf • Codex] -->|MCP stdio| B[cuemcp<br/>MCP server]
-  B -->|writes requests<br/>polls responses| C[(~/.cue/cue.db<br/>SQLite mailbox)]
-  D[cue-console<br/>UI (desktop/mobile)] <-->|reads/writes| C
+  A["Agent / Runtime\nClaude Code • Cursor • Windsurf • Codex"] -->|MCP stdio| B["cuemcp\nMCP server"]
+  B -->|writes requests\npolls responses| C[("~/.cue/cue.db\nSQLite mailbox")]
+  D["cue-console\nUI (desktop/mobile)"] <-->|reads/writes| C
   D -->|human responds| C
   C -->|response available| B
   B -->|MCP tool result| A
