@@ -163,13 +163,9 @@ Agent/Runtime  ⇄  cueme  ⇄  ~/.cue/cue.db  ⇄  cue-console
 
 ```mermaid
 flowchart LR
-  A[Agent / Runtime
-  Claude Code • Cursor • Windsurf • Codex] <--> B[cueme
-  command adapter]
-  B <--> C[(~/.cue/cue.db
-SQLite mailbox)]
-  D[cue-console
-UI (desktop/mobile)] <-->|reads/writes| C
+  A[Agent / Runtime<br/>Claude Code • Cursor • Windsurf • Codex] <--> B[cueme<br/>command adapter]
+  B <--> C[(~/.cue/cue.db<br/>SQLite mailbox)]
+  D[cue-console<br/>UI (desktop/mobile)] <-->|reads/writes| C
   D -->|human responds| C
 ```
 

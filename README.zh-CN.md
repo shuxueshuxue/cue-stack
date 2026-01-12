@@ -163,14 +163,9 @@ Agent/Runtime  ⇄  (MCP stdio)  ⇄  cuemcp  ⇄  ~/.cue/cue.db  ⇄  cue-conso
 
 ```mermaid
 flowchart LR
-  A[Agent / Runtime
-  Claude Code • Cursor • Windsurf • Codex] -->|MCP stdio| B[cuemcp
-  MCP server]
-  B -->|writes requests
-polls responses| C[(~/.cue/cue.db
-SQLite mailbox)]
-  D[cue-console
-UI (desktop/mobile)] <-->|reads/writes| C
+  A[Agent / Runtime<br/>Claude Code • Cursor • Windsurf • Codex] -->|MCP stdio| B[cuemcp<br/>MCP server]
+  B -->|writes requests<br/>polls responses| C[(~/.cue/cue.db<br/>SQLite mailbox)]
+  D[cue-console<br/>UI (desktop/mobile)] <-->|reads/writes| C
   D -->|human responds| C
   C -->|response available| B
   B -->|MCP tool result| A
