@@ -65,9 +65,18 @@ Open `http://localhost:3000`.
 
 ### 2) Configure system prompt
 
-Copy the contents of `cue-command/protocol.md` into your runtime's system prompt / persistent rules:
+Use `cueme proto` to inject `protocol.md` into your runtime's persistent rules.
+
+Example (macOS + Windsurf):
+
+```bash
+cueme proto apply windsurf
+```
+
+Reference:
 
 - [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+- `cueme proto` docs: `cue-command/docs/proto.md`
 
 ### 3) Start the first chat in your IDE, then continue in cue-console
 
