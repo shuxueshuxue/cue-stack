@@ -14,9 +14,9 @@
 [![npm downloads](https://img.shields.io/npm/dm/cueme?color=0B7285)](https://www.npmjs.com/package/cueme)
 
 [![Repo: cue-stack](https://img.shields.io/badge/repo-cue--stack-111827)](https://github.com/nmhjklnm/cue-stack)
-[![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
-[![Repo: cue-command](https://img.shields.io/badge/repo-cue--command-111827)](https://github.com/nmhjklnm/cue-command)
 ![License](https://img.shields.io/badge/license-Apache--2.0-1E40AF)
+
+源码: <https://github.com/nmhjklnm/cue-stack/tree/main/cue-command>
 
 [Contributing](./CONTRIBUTING.md) · [Trademark](./TRADEMARK.md)
 
@@ -36,7 +36,7 @@ npm install -g cueme
 
 把 `protocol.md` 的内容复制到你正在使用的 runtime 的系统提示词 / 持久规则里：
 
-- [`protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+- [`protocol.md`](https://github.com/nmhjklnm/cue-stack/blob/main/cue-command/protocol.md)
 
 如果你是通过 npm 安装的，`protocol.md` 也会包含在安装包里。
 

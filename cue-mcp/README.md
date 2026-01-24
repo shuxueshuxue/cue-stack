@@ -7,10 +7,9 @@ _An MCP service on top of HAP (Human Agent Protocol) — compose humans and agen
 [![Python versions](https://img.shields.io/pypi/pyversions/cuemcp?color=0B7285)](https://pypi.org/project/cuemcp/)
 
 [![Repo: cue-stack](https://img.shields.io/badge/repo-cue--stack-111827)](https://github.com/nmhjklnm/cue-stack)
-[![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
-[![Repo: cue-command](https://img.shields.io/badge/repo-cue--command-111827)](https://github.com/nmhjklnm/cue-command)
-[![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
 ![License](https://img.shields.io/badge/license-Apache--2.0-1E40AF)
+
+Source: <https://github.com/nmhjklnm/cue-stack/tree/main/cue-mcp>
 
 [Contributing](./CONTRIBUTING.md) · [Trademark](./TRADEMARK.md)
 
@@ -20,7 +19,7 @@ _An MCP service on top of HAP (Human Agent Protocol) — compose humans and agen
 
 `cuemcp` is an MCP server that gives your agents a single “collaboration inbox” (`cue`/`cue()`), so you can run Claude Code, Cursor, Codex, Windsurf (and other MCP-capable runtimes) with one consistent collaboration flow.
 
-Pair it with [`cue-console`](https://github.com/nmhjklnm/cue-console) for a desktop/mobile UI to view pending collaboration requests and respond from anywhere.
+Pair it with [`cue-console`](https://github.com/nmhjklnm/cue-stack/tree/main/cue-console) for a desktop/mobile UI to view pending collaboration requests and respond from anywhere.
 
 Note: some IDEs can block/flag MCP integrations. If you run into that, command mode (`cueme`) is currently recommended.
 
@@ -196,8 +195,8 @@ gemini mcp add cuemcp uvx --from cuemcp cuemcp
 If you don’t want to rely on `uvx` (for example, you prefer pinned source or local hacking), you can run `cuemcp` from a cloned repository.
 
 ```bash
-git clone https://github.com/nmhjklnm/cue-mcp.git
-cd cue-mcp
+git clone https://github.com/nmhjklnm/cue-stack.git
+cd cue-stack/cue-mcp
 uv sync
 uv run cuemcp
 ```
@@ -310,7 +309,7 @@ uv run cuemcp
 ## Links
 
 - **PyPI**: [pypi.org/project/cuemcp](https://pypi.org/project/cuemcp/)
-- **Repo**: [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp)
+- **Repo**: [github.com/nmhjklnm/cue-stack/tree/main/cue-mcp](https://github.com/nmhjklnm/cue-stack/tree/main/cue-mcp)
 
 ---
 
