@@ -13,13 +13,8 @@
 <div align="center">
 
 [![Repo: cue-stack](https://img.shields.io/badge/repo-cue--stack-111827)](https://github.com/nmhjklnm/cue-stack)
-[![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
-[![Repo: cue-command](https://img.shields.io/badge/repo-cue--command-111827)](https://github.com/nmhjklnm/cue-command)
-[![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
 [![License](https://img.shields.io/github/license/nmhjklnm/cue-stack?color=1E40AF)](./LICENSE)
-[![CI: cue-console](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml)
-[![CI: cue-command](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml)
-[![CI: cue-mcp](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml)
+[![CI](https://github.com/nmhjklnm/cue-stack/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-stack/actions/workflows/publish.yml)
 [![npm](https://img.shields.io/npm/v/cue-console?label=cue-console&color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm downloads](https://img.shields.io/npm/dm/cue-console?color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm](https://img.shields.io/npm/v/cueme?label=cueme&color=0B7285)](https://www.npmjs.com/package/cueme)
@@ -43,11 +38,11 @@ Open the console.
 Agents can run for hours. At that point they stop feeling like “tools” and start feeling like “coworkers”.
 Coworkers don’t dump their entire context on you — they bring progress, questions, and decisions. HAP defines that contract; `cue-command` implements it.
 
-| Repo | What it is | Link |
+| Package | What it is | Source |
 | --- | --- | --- |
-| `cue-console` | UI inbox (desktop + mobile) | [github.com/nmhjklnm/cue-console](https://github.com/nmhjklnm/cue-console) |
-| `cue-command` | HAP command adapter (`cueme`) | [github.com/nmhjklnm/cue-command](https://github.com/nmhjklnm/cue-command) |
-| `cue-mcp` | HAP implementation (MCP server) | [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp) |
+| `cue-console` | UI inbox (desktop + mobile) | [/cue-console](./cue-console) |
+| `cue-command` | HAP command adapter (`cueme`) | [/cue-command](./cue-command) |
+| `cue-mcp` | HAP implementation (MCP server) | [/cue-mcp](./cue-mcp) |
 
 ---
 
@@ -75,8 +70,8 @@ cueme proto apply windsurf
 
 Reference:
 
-- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
-- `cueme proto` docs: `cue-command/docs/proto.md`
+- [`cue-command/protocol.md`](./cue-command/protocol.md)
+- `cueme proto` docs: [cue-command/docs/proto.md](./cue-command/docs/proto.md)
 
 ### 3) Start the first chat in your IDE, then continue in cue-console
 

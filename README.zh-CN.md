@@ -13,13 +13,8 @@
 <div align="center">
 
 [![Repo: cue-stack](https://img.shields.io/badge/repo-cue--stack-111827)](https://github.com/nmhjklnm/cue-stack)
-[![Repo: cue-console](https://img.shields.io/badge/repo-cue--console-111827)](https://github.com/nmhjklnm/cue-console)
-[![Repo: cue-command](https://img.shields.io/badge/repo-cue--command-111827)](https://github.com/nmhjklnm/cue-command)
-[![Repo: cue-mcp](https://img.shields.io/badge/repo-cue--mcp-111827)](https://github.com/nmhjklnm/cue-mcp)
 [![License](https://img.shields.io/github/license/nmhjklnm/cue-stack?color=1E40AF)](./LICENSE)
-[![CI: cue-console](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-console/actions/workflows/publish.yml)
-[![CI: cue-command](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-command/actions/workflows/publish.yml)
-[![CI: cue-mcp](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-mcp/actions/workflows/publish.yml)
+[![CI](https://github.com/nmhjklnm/cue-stack/actions/workflows/publish.yml/badge.svg)](https://github.com/nmhjklnm/cue-stack/actions/workflows/publish.yml)
 [![npm](https://img.shields.io/npm/v/cue-console?label=cue-console&color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm downloads](https://img.shields.io/npm/dm/cue-console?color=0B7285)](https://www.npmjs.com/package/cue-console)
 [![npm](https://img.shields.io/npm/v/cueme?label=cueme&color=0B7285)](https://www.npmjs.com/package/cueme)
@@ -43,11 +38,11 @@
 这些协作会像同事消息一样，自动进入你的协作控制台。
 你随时可以在控制台里处理它们。
 
-| Repo | 作用 | 链接 |
+| 包 | 作用 | 源码 |
 | --- | --- | --- |
-| `cue-console` | UI inbox（桌面 + 手机） | [github.com/nmhjklnm/cue-console](https://github.com/nmhjklnm/cue-console) |
-| `cue-command` | HAP command 适配器（`cueme`） | [github.com/nmhjklnm/cue-command](https://github.com/nmhjklnm/cue-command) |
-| `cue-mcp` | HAP 的具象实现（MCP server） | [github.com/nmhjklnm/cue-mcp](https://github.com/nmhjklnm/cue-mcp) |
+| `cue-console` | UI inbox（桌面 + 手机） | [/cue-console](./cue-console) |
+| `cue-command` | HAP command 适配器（`cueme`） | [/cue-command](./cue-command) |
+| `cue-mcp` | HAP 的具象实现（MCP server） | [/cue-mcp](./cue-mcp) |
 
 ---
 
@@ -67,7 +62,7 @@ cue-console start
 
 复制 `cue-command/protocol.md` 的文本内容到你的 runtime 的 system prompt / persistent rules：
 
-- [`cue-command/protocol.md`](https://github.com/nmhjklnm/cue-command/blob/main/protocol.md)
+- [`cue-command/protocol.md`](./cue-command/protocol.md)
 
 ### 3) 首次对话在 IDE，后续轮次在 cue-console
 

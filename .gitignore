@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.next/
+.venv/
+*.pyc
+__pycache__/
+.DS_Store
+*.log
+.env
+.env.local
+pnpm-lock.yaml
