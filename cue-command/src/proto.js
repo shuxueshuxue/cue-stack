@@ -523,23 +523,27 @@ function protoRemove(agent) {
     return `ok: file does not exist: ${targetPath}`;
   }
 
-  const beginMatch = existing.match(BEGIN_MARKER_RE);
-  const endMatch = existing.match(END_MARKER_RE);
+  const eol = detectEol(existing);
+  let out = existing;
+  let removed = false;
 
-  if (!beginMatch || !endMatch || endMatch.index <= beginMatch.index) {
+  const removeBlock = (text, beginRe, endRe) => {
+    const range = findBlockRange(text, beginRe, endRe);
+    if (!range) return { text, removed: false };
+    return { text: replaceBlock({ text, range, block: '', eol }), removed: true };
+  };
+
+  const protoResult = removeBlock(out, BEGIN_MARKER_RE, END_MARKER_RE);
+  out = protoResult.text;
+  removed = removed || protoResult.removed;
+
+  const runtimeResult = removeBlock(out, RUNTIME_BEGIN_MARKER_RE, RUNTIME_END_MARKER_RE);
+  out = runtimeResult.text;
+  removed = removed || runtimeResult.removed;
+
+  if (!removed) {
     return `ok: no managed block found in: ${targetPath}`;
   }
-
-  const beginIdx = beginMatch.index;
-  const endIdx = endMatch.index;
-  const endLen = endMatch[0].length;
-
-  const before = existing.slice(0, beginIdx);
-  const after = existing.slice(endIdx + endLen);
-
-  const eol = detectEol(existing);
-  const afterTrim = after.startsWith(eol) ? after.slice(eol.length) : after;
-  const out = before + afterTrim;
 
   if (out.trim().length === 0) {
     try {
